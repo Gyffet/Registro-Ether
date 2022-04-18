@@ -18,7 +18,7 @@ namespace Registro_Ether
 
         private async Task GetResultado()
         {
-            string responsePool = await client.GetStringAsync("https://api.ethermine.org/miner/0x8438a012b6d2c43b8615d7d67a42883b2e69ea7c/dashboard");
+            string responsePool = await client.GetStringAsync("https://api.ethermine.org/miner/your-wallet-tu-billetera/dashboard");
             var poolResult = JsonConvert.DeserializeObject<Ethermine>(responsePool);
             var saldoP = Math.Round(poolResult.data.currentStatistics.unpaid * 0.000000000000000001, 5);
 
@@ -34,8 +34,8 @@ namespace Registro_Ether
 
 
             Workbook workbook = new Workbook();
-            //workbook.LoadFromFile("D:\\Documents\\Minero\\Estadisticas.xlsx");
-            workbook.LoadFromFile("C:\\Users\\Rig\\Documents\\Minero_Remoto\\Estadisticas.xlsx");
+            workbook.LoadFromFile("C:\\rute\\ruta\\NombreExcelName.xlsx");//needs to be xlsx extension // debe de ser extensión xlsx
+            
 
             Worksheet hoja = workbook.Worksheets[0];
             int lastFilledRow = hoja.LastRow;
